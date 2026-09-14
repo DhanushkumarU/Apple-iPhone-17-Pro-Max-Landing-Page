@@ -1,0 +1,408 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 54px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  margin-top: 0;
+  padding: clamp(48px, 7.0vh, 70px) 20px clamp(88px, 12vh, 110px);
+  box-sizing: border-box;
+}
+
+/* Background video container - Flush behind hero title and content */
+.hero-video-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  display: block;
+  opacity: 1;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Atmospheric vignette: Clear top directly below navigation, smooth fade into white at bottom */
+.hero-video-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.22) 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.42) 88%,
+    #ffffff 100%
+  );
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 960px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0 auto;
+}
+
+/* ==================================================
+   INTERACTIVE HERO TITLE & COSMIC ORANGE TORCH EFFECT
+   ================================================== */
+.hero-title-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 auto clamp(36px, 5.2vh, 52px);
+  user-select: none;
+  cursor: default;
+}
+
+.hero-title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(2.35rem, 5.2vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 4px 12px;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.65)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.75));
+}
+
+/* Base layer: High-contrast bright white with warm Cosmic Orange bevel edge */
+.hero-title-base {
+  display: inline-block;
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 68%, #f7a060 92%, #e26620 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.25s ease;
+}
+
+/* Torch highlight layer: Follows cursor with smooth eased radial spotlight in Cosmic Orange */
+.hero-title-torch {
+  position: absolute;
+  inset: 0;
+  display: inline-block;
+  padding: 4px 12px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 200px at var(--torch-x, 50%) var(--torch-y, 50%),
+    #ff9848 0%,
+    #e26620 42%,
+    #c85313 72%,
+    rgba(200, 83, 19, 0) 84%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: var(--torch-opacity, 0);
+  filter: drop-shadow(0 0 16px rgba(226, 102, 32, calc(var(--torch-opacity, 0) * 0.55)));
+  transition: opacity 0.25s ease;
+}
+
+/* Primary & Secondary Action Links */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto clamp(32px, 4.5vh, 42px);
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #e26620;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 16px rgba(226, 102, 32, 0.4);
+}
+
+.hero-btn-primary:hover {
+  background: #cf5513;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(226, 102, 32, 0.5);
+}
+
+.hero-link-secondary {
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.hero-link-secondary:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+/* ==================================================
+   CINEMATIC SPECIFICATION RAIL
+   ================================================== */
+.hero-specs-rail {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: min(92%, 620px);
+  margin: 0 auto;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(14, 14, 18, 0.42);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.hero-rail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 0;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+  cursor: default;
+}
+
+.hero-rail-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.rail-value {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.2s ease;
+}
+
+.hero-rail-item:hover .rail-value {
+  color: #f7a060;
+}
+
+.rail-label {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 3px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+/* ==================================================
+   SCROLL HINT - BOTTOM VIEWPORT POSITIONING
+   ================================================== */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: clamp(28px, 4vh, 40px);
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11.5px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  transition: color 0.2s ease;
+  z-index: 4;
+}
+
+.hero-scroll-hint:hover {
+  color: #f7a060;
+}
+
+.scroll-chevron {
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.75);
+  transform: rotate(45deg);
+  animation: scrollBounce 2.2s infinite ease-in-out;
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(5px) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+/* ==================================================
+   RESPONSIVE & ACCESSIBILITY
+   ================================================== */
+@media (max-width: 900px) {
+  .hero-section {
+    min-height: calc(100vh - 54px);
+    padding: clamp(36px, 5.5vh, 50px) 16px clamp(76px, 10vh, 90px);
+  }
+
+  .hero-title {
+    font-size: clamp(2.15rem, 5.6vw, 3.2rem);
+  }
+
+  .hero-title-wrapper {
+    margin-bottom: clamp(28px, 4.5vh, 40px);
+  }
+
+  .hero-specs-rail {
+    max-width: 520px;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .rail-value {
+    font-size: 1.12rem;
+  }
+
+  .rail-label {
+    font-size: 10px;
+  }
+
+  .hero-bg-video {
+    object-position: center 34%;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero-section {
+    min-height: calc(100svh - 46px);
+    padding: clamp(30px, 5.0vh, 42px) 14px clamp(72px, 9.5vh, 84px);
+  }
+
+  .hero-title {
+    font-size: clamp(1.95rem, 8.2vw, 2.65rem);
+  }
+
+  .hero-title-wrapper {
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .hero-btn-primary,
+  .hero-link-secondary {
+    width: 100%;
+    height: 42px;
+    padding: 0 20px;
+  }
+
+  .hero-specs-rail {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 10px;
+    padding: 10px 12px;
+    max-width: 270px;
+  }
+
+  .rail-value {
+    font-size: 1.08rem;
+  }
+
+  .rail-label {
+    font-size: 10px;
+  }
+
+  .hero-bg-video {
+    object-position: center 30%;
+  }
+
+  .hero-scroll-hint {
+    bottom: 22px;
+  }
+}
+
+/* Touch devices: elegant static Cosmic Orange gradient without pointer tracker */
+@media (hover: none) or (pointer: coarse) {
+  .hero-title-torch {
+    display: none !important;
+  }
+
+  .hero-title-base {
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 62%, #f47b2a 88%, #e26620 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-chevron {
+    animation: none;
+  }
+  .hero-btn-primary,
+  .hero-link-secondary,
+  .hero-title-torch {
+    transition: none;
+  }
+}
+

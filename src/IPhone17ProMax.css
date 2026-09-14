@@ -1,0 +1,310 @@
+/* RESET & BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.showcase {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  padding: clamp(24px, 3.5vh, 40px) 4vw clamp(28px, 3.5vh, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sticky header for title + subtitle + colors */
+.iphone17-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, #ffffff 75%, rgba(255, 255, 255, 0));
+  padding-bottom: 10px;
+  text-align: center;
+  width: 100%;
+  max-width: 960px;
+}
+
+/* HEADER STYLES */
+.title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: clamp(2.0rem, 3.8vw, 3.2rem);
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 8px;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  font-size: clamp(0.98rem, 1.4vw, 1.22rem);
+  color: #6e6e73;
+  margin-bottom: 14px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* COLOR SELECTOR */
+/* COLOR SELECTOR (Minimalist Apple Swatches) */
+.colors {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 8px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-btn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  outline: none;
+}
+
+.color-btn:hover {
+  transform: scale(1.1);
+}
+
+.color-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.35), 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.color-btn.active .color-circle {
+  outline: 2px solid #e26620;
+  outline-offset: 3px;
+  box-shadow: 0 0 12px rgba(226, 102, 32, 0.3);
+}
+
+.color-btn span:not(.color-circle) {
+  display: none;
+}
+
+.color-description {
+  font-size: 13.5px;
+  color: #6e6e73;
+  margin-bottom: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* QUICK ANGLE SNAP ROW (Minimalist Apple Segment Tabs) */
+.angle-snap-row {
+  display: inline-flex;
+  gap: 6px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 999px;
+}
+
+.angle-pill-btn {
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 18px;
+  color: #6e6e73;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.angle-pill-btn:hover {
+  color: #1d1d1f;
+}
+
+.angle-pill-btn.active {
+  background: #ffffff;
+  color: #1d1d1f;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 3D WEBGL VIEWER CONTAINER */
+.viewer-3d-webgl {
+  width: 100%;
+  max-width: 960px;
+  height: clamp(420px, 48vh, 520px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  margin: 4px 0 12px;
+  background: radial-gradient(ellipse 75% 60% at 50% 62%, #fbfbfd 0%, rgba(255, 255, 255, 0) 72%);
+}
+
+.viewer-3d-webgl:active {
+  cursor: grabbing;
+}
+
+.webgl-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+}
+
+/* INTERACTION HINT */
+.interaction-hint {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #86868b;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+  letter-spacing: -0.01em;
+}
+
+.hint-icon {
+  color: #e26620;
+  font-size: 11px;
+}
+
+/* FLAGSHIP FEATURE HIGHLIGHTS (Unboxed Editorial Design) */
+.flagship-feature-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 1040px;
+  margin-top: 18px;
+}
+
+.feature-pill-item {
+  background: transparent;
+  border: none;
+  border-left: 2px solid #e5e5ea;
+  border-radius: 0;
+  padding: 10px 0 10px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  box-shadow: none;
+  transition: border-color 0.22s ease;
+  outline: none;
+}
+
+.feature-pill-item:hover {
+  border-left-color: #d2d2d7;
+}
+
+.feature-pill-item.active {
+  border-left-color: #e26620;
+}
+
+.pill-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  letter-spacing: -0.02em;
+}
+
+.a19-badge {
+  background: #1d1d1f;
+  color: #ffffff;
+}
+
+.pill-icon {
+  font-size: 20px;
+  color: #e26620;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pill-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pill-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.2px;
+}
+
+.pill-desc {
+  font-size: 12px;
+  color: #6e6e73;
+  margin-top: 2px;
+}
+
+/* RESPONSIVE SCALING */
+@media (min-width: 1400px) {
+  .viewer-3d-webgl {
+    height: clamp(460px, 52vh, 560px);
+    max-width: 1020px;
+  }
+}
+
+@media (max-width: 900px) {
+  .title { font-size: 38px; }
+  .subtitle { font-size: 16px; margin-bottom: 14px; }
+  .viewer-3d-webgl { height: clamp(400px, 46vh, 480px); }
+
+  .flagship-feature-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .showcase { padding: 28px 16px 32px 16px; }
+  .title { font-size: 28px; letter-spacing: -0.5px; }
+  .subtitle { font-size: 13px; margin-bottom: 12px; }
+  .colors { gap: 10px; }
+  .color-btn { padding: 4px; }
+  .color-circle { width: 22px; height: 22px; }
+  .color-description { font-size: 12px; margin-bottom: 12px; }
+
+  .angle-pill-btn { padding: 5px 10px; font-size: 11px; }
+
+  .viewer-3d-webgl { height: clamp(340px, 44vh, 400px); }
+  .interaction-hint { font-size: 10.5px; padding: 4px 10px; bottom: 4px; }
+
+  .flagship-feature-bar {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .feature-pill-item {
+    padding: 10px 14px;
+  }
+}

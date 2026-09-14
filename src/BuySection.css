@@ -1,0 +1,516 @@
+/* ==========================================================================
+   BUY / CONFIGURATION SECTION (Apple Editorial Commerce Design Language)
+   ========================================================================== */
+
+.buy-section {
+  padding: 96px 20px 108px;
+  background: #ffffff;
+  color: #1d1d1f;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.buy-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* 1. Page Intro */
+.buy-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.buy-eyebrow {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #86868b;
+  margin-bottom: 12px;
+}
+
+.buy-title {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+  font-size: clamp(2.4rem, 4.2vw, 3.0rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin: 0 0 12px;
+  color: #1d1d1f;
+}
+
+.buy-subtitle {
+  font-size: clamp(1.0rem, 1.4vw, 1.125rem);
+  color: #6e6e73;
+  font-weight: 400;
+  line-height: 1.48;
+  letter-spacing: -0.01em;
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+/* 2. Side-by-Side Configuration Layout */
+.buy-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.buy-config-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+}
+
+.buy-summary-col {
+  position: sticky;
+  top: 96px;
+  min-width: 0;
+}
+
+.config-step {
+  padding: 22px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.config-step:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* 3. Section Labels */
+.config-step-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.config-step-num {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Mono", monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #86868b;
+  letter-spacing: 0.04em;
+}
+
+.config-step-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+  margin: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.config-step-detail {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #6e6e73;
+}
+
+/* 4. Model Selection */
+.config-options-models {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.model-option-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid #d2d2d7;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  text-align: left;
+  width: 100%;
+  outline: none;
+  font: inherit;
+}
+
+.model-option-btn:hover {
+  border-color: #86868b;
+}
+
+.model-option-btn.selected {
+  border-color: #e26620;
+  background: rgba(226, 102, 32, 0.03);
+  box-shadow: inset 0 0 0 1px #e26620;
+}
+
+.model-option-btn:focus-visible {
+  outline: 2px solid #e26620;
+  outline-offset: 2px;
+}
+
+.model-option-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.model-name {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+
+.model-display {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #6e6e73;
+}
+
+.model-price {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1d1d1f;
+  text-align: right;
+  font-feature-settings: "tnum";
+}
+
+.model-option-btn.selected .model-price {
+  color: #d85310;
+}
+
+/* 5. Finish Selection */
+.finish-swatches-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.finish-swatch-btn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  outline: none;
+  transition: transform 0.2s ease;
+}
+
+.finish-swatch-btn:hover {
+  transform: scale(1.08);
+}
+
+.finish-swatch-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.finish-swatch-btn.selected .finish-swatch-circle {
+  outline: 2px solid #e26620;
+  outline-offset: 3px;
+}
+
+.finish-swatch-btn:focus-visible {
+  outline: 2px solid #e26620;
+  outline-offset: 4px;
+  border-radius: 50%;
+}
+
+/* 6. Storage Capacity */
+.storage-options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.storage-option-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 12px;
+  border-radius: 12px;
+  border: 1px solid #d2d2d7;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  outline: none;
+  font: inherit;
+}
+
+.storage-option-btn:hover {
+  border-color: #86868b;
+}
+
+.storage-option-btn.selected {
+  border-color: #e26620;
+  background: rgba(226, 102, 32, 0.03);
+  box-shadow: inset 0 0 0 1px #e26620;
+}
+
+.storage-option-btn:focus-visible {
+  outline: 2px solid #e26620;
+  outline-offset: 2px;
+}
+
+.storage-capacity {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+
+.storage-price {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #6e6e73;
+  font-feature-settings: "tnum";
+}
+
+/* 7. Trade-In Options */
+.tradein-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tradein-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 980px;
+  border: 1px solid #d2d2d7;
+  background: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #1d1d1f;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  outline: none;
+}
+
+.tradein-pill:hover {
+  border-color: #86868b;
+  background: #fbfbfd;
+}
+
+.tradein-pill.selected {
+  border-color: #e26620;
+  background: rgba(226, 102, 32, 0.04);
+  color: #1d1d1f;
+  font-weight: 500;
+  box-shadow: inset 0 0 0 1px #e26620;
+}
+
+.tradein-pill:focus-visible {
+  outline: 2px solid #e26620;
+  outline-offset: 2px;
+}
+
+.tradein-credit {
+  color: #2e7d32;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+/* 8. Order Summary Card (Contained, Restrained, Editorial) */
+.buy-summary-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  padding: 32px 28px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.summary-card-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #86868b;
+  margin-bottom: 14px;
+}
+
+.summary-device-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-device-name {
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #1d1d1f;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.summary-device-specs {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6e6e73;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.summary-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 22px 0;
+}
+
+.summary-price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-total-price {
+  font-size: clamp(2.2rem, 3.2vw, 2.5rem);
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-feature-settings: "tnum";
+}
+
+.summary-monthly-note {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: #6e6e73;
+  margin-top: 4px;
+}
+
+.summary-savings-note {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #2e7d32;
+  margin: 8px 0 0;
+}
+
+.summary-action-block {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buy-cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 13px 24px;
+  background: #e26620;
+  color: #ffffff;
+  border-radius: 980px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.buy-cta-btn:hover {
+  background: #cf5513;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.buy-cta-btn:focus-visible {
+  outline: 2px solid #e26620;
+  outline-offset: 3px;
+}
+
+.summary-shipping-info {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #86868b;
+  text-align: center;
+  line-height: 1.45;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .buy-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .buy-summary-col {
+    position: static;
+  }
+
+  .buy-summary-card {
+    padding: 26px 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .buy-section {
+    padding: 64px 16px 80px;
+  }
+
+  .storage-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .model-option-btn {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .model-price {
+    text-align: left;
+  }
+
+  .tradein-pills-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tradein-pill {
+    justify-content: space-between;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .model-option-btn,
+  .finish-swatch-btn,
+  .storage-option-btn,
+  .tradein-pill,
+  .buy-cta-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}
