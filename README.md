@@ -17,12 +17,15 @@ An interactive product showcase built with React, Three.js, WebGL, GSAP, and mod
 
 This project is an interactive, browser-based product experience for a conceptual iPhone 17 Pro Max. It explores how modern WebGL workflows can be integrated into React applications to create seamless, narrative-driven product showcases.
 
-Key architectural goals:
-- High-performance 3D rendering with GPU resource management
-- Responsive, typography-driven layouts across all device form factors
-- Strict component lifecycle cleanup to prevent memory leaks and dropped frames
-- Accessible controls and semantic HTML structure
-- Production-ready search engine optimization (SEO) and social metadata
+Key engineering objectives:
+
+- GPU-accelerated WebGL rendering with Three.js and controlled render-loop execution
+- Declarative, state-driven product configuration with synchronized 3D scene updates
+- Component lifecycle management with explicit resource cleanup to minimize memory leaks and rendering overhead
+- Responsive, component-based UI architecture with adaptive layouts across desktop, tablet, and mobile viewports
+- Interaction orchestration using GSAP-based animation timelines and scroll-driven transitions
+- Semantic HTML, accessible interactive controls, and keyboard-navigable UI patterns
+- Production-oriented frontend optimization covering asset delivery, code structure, SEO metadata, and deployment readiness
 
 ---
 
