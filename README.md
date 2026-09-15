@@ -1,7 +1,16 @@
-﻿# iPhone 17 Pro Max — Interactive 3D Experience
+# iPhone 17 Pro Max — Interactive 3D Experience
+
+<p align="center">
+  <img src="media/hero.jpeg" alt="iPhone 17 Pro Max Interactive 3D Experience" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://iphone-17-pro-max-experience.vercel.app/">
+    <strong>Live Demo →</strong>
+  </a>
+</p>
 
 An interactive product showcase built with React, Three.js, WebGL, GSAP, and modern web technologies. This project demonstrates high-fidelity frontend engineering, real-time 3D rendering in the browser, declarative state-driven hardware configuration, and responsive UI performance inspired by premium consumer tech product storytelling.
-
 ---
 
 ## Overview
@@ -16,6 +25,10 @@ Key architectural goals:
 - Production-ready search engine optimization (SEO) and social metadata
 
 ---
+
+## Interactive Demo
+
+[▶ Watch the full Interactive Website walkthrough](media/demo.mp4)
 
 ## Features
 
