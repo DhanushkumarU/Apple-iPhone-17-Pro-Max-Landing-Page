@@ -6,11 +6,12 @@
 
 <p align="center">
   <a href="https://iphone-17-pro-max-experience.vercel.app/">
-    <strong>Live Demo →</strong>
+    <strong>Live Website →</strong>
   </a>
 </p>
 
 An interactive product showcase built with React, Three.js, WebGL, GSAP, and modern web technologies. This project demonstrates high-fidelity frontend engineering, real-time 3D rendering in the browser, declarative state-driven hardware configuration, and responsive UI performance inspired by premium consumer tech product storytelling.
+
 ---
 
 ## Overview
@@ -26,12 +27,18 @@ Key engineering objectives:
 - Interaction orchestration using GSAP-based animation timelines and scroll-driven transitions
 - Semantic HTML, accessible interactive controls, and keyboard-navigable UI patterns
 - Production-oriented frontend optimization covering asset delivery, code structure, SEO metadata, and deployment readiness
+<p align="center">
+  <a href="https://iphone-17-pro-max-experience.vercel.app/">
+    <strong>Live Website →</strong>
+  </a>
+</p>
+
+
+
+https://github.com/user-attachments/assets/5d20c1dd-b4ca-4e5e-8aa5-7bec58bbdfa8
+
 
 ---
-
-## Interactive Demo
-
-[▶ Watch the full Interactive Website walkthrough](media/demo.mp4)
 
 ## Features
 
